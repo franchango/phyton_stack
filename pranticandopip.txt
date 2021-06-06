@@ -1,0 +1,66 @@
+¿En qué se diferencia el resultado de cuando ejecutó pip listcon el entorno virtual activado
+
+AngelesCh@DESKTOP-KG000D4 MINGW64 ~ (main)
+$ pip list
+
+ el comando fuera del entorno virtual no se muestra nada
+AngelesCh@DESKTOP-KG000D4 MINGW64 ~ (main)
+$ pip list
+Package    Version
+---------- -------
+Django     1.11.9
+pip        21.1.2
+pytz       2021.1
+setuptools 56.0.0
+(djangoPy3Env)
+La lista  me muestra 
+
+Qué información ves devuelta en la terminal después de este comando?
+AngelesCh@DESKTOP-KG000D4 MINGW64 ~ (main)
+$ pip install Django==1.11.9
+Collecting Django==1.11.9
+  Downloading Django-1.11.9-py2.py3-none-any.whl (6.9 MB)
+Collecting pytz
+  Downloading pytz-2021.1-py2.py3-none-any.whl (510 kB)
+Installing collected packages: pytz, Django
+Successfully installed Django-1.11.9 pytz-2021.1
+WARNING: You are using pip version 21.1.1; however, version 21.1.2 is available.
+You should consider upgrading via the 'c:\users\angelesch\documents\github\phyton_stack\my_enviroments\djangopy3env\scripts\python.exe -m pip install --upgrade pip' command.
+(djangoPy3Env)
+
+¿Cuál es la diferencia entre freeze y list?
+
+La principal diferencia es que la salida de pip freeze puede volcarse en un archivo Requirements.txt y usarse más tarde para reconstruir el entorno "congelado".
+
+El contenido de salida, pip list incluye editables que pip freeze no.
+
+AngelesCh@DESKTOP-KG000D4 MINGW64 ~/Desktop (master)
+$ pip uninstall Django
+Found existing installation: Django 1.11.9
+Uninstalling Django-1.11.9:
+  Would remove:
+    c:\users\angelesch\documents\github\phyton_stack\my_enviroments\djangopy3env\lib\site-packages\django-1.11.9.dist-info\*
+    c:\users\angelesch\documents\github\phyton_stack\my_enviroments\djangopy3env\lib\site-packages\django\*
+    c:\users\angelesch\documents\github\phyton_stack\my_enviroments\djangopy3env\scripts\django-admin.exe
+    c:\users\angelesch\documents\github\phyton_stack\my_enviroments\djangopy3env\scripts\django-admin.py
+Proceed (y/n)? y
+  Successfully uninstalled Django-1.11.9
+(djangoPy3Env)
+AngelesCh@DESKTOP-KG000D4 MINGW64 ~/Desktop (master)
+$ pip show Django
+WARNING: Package(s) not found: Django
+(djangoPy3Env)
+AngelesCh@DESKTOP-KG000D4 MINGW64 ~/Desktop (master)
+$ pip search Flask
+ERROR: XMLRPC request failed [code: -32500]
+RuntimeError: PyPI's XMLRPC API is currently disabled due to unmanageable load and will be deprecated in the near future. See https://status.python.org/ for more information.
+(djangoPy3Env)
+AngelesCh@DESKTOP-KG000D4 MINGW64 ~/Desktop (master)
+$ pip list
+Package    Version
+---------- -------
+pip        21.1.2
+pytz       2021.1
+setuptools 56.0.0
+(djangoPy3Env)
+AngelesCh@DESKTOP-KG000D4 MINGW64 ~/Desktop (master)
