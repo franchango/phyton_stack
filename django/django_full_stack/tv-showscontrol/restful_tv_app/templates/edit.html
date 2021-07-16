@@ -30,8 +30,9 @@
             <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ show.description}}</textarea>
         </div>
         <button class="btn btn-primary">Enviar</button>
-        <button href="/shows">Regresar</button>
+        <a href="/shows">Regresar</a>
     </form>
+    
     <ul class="messages">
             {% for message in messages %}
                 {% if message.tags %}
