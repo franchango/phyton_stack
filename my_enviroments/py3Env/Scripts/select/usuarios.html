@@ -1,0 +1,8 @@
+<div class="widget-content">
+    {% from "macros/dropdown.html" import dropdown %}
+    
+       <form action="{{ request.base_url }}" method="post" accept-charset="utf-8">
+          {{ dropdown('usuario', usuarios, extra='id="usuarios_select"') }}
+          <button type="submit" class="btn btn-secondary">Buscar</button>
+       </form>
+    </div>

@@ -1,0 +1,11 @@
+.color0{
+    background-color: green;
+}
+.color1{
+    background-color: rgb(224, 214, 214);
+}
+
+    table tr td{
+        height: 50px;
+        width: 50px;
+    }

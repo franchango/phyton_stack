@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Visualizing Flexbox</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div ng-app="app" ng-controller="MainController" class="main">
+  <div class="controls">
+    <div class="inner">
+      <h1>Visualizing Flexbox</h1>
+      <h3>Content</h3>
+      <label>number of children
+        <input type="number" ng-model="numChildren" min="1" max="100">
+      </label>
+      <h3>Parent</h3>
+      <label>flex-direction
+        <select ng-model="containerStyle['flex-direction']" ng-options="o for o in flexDirectionOptions"></select>
+      </label>
+
+      <label>flex-wrap
+        <select ng-model="containerStyle['flex-wrap']" ng-options="o for o in flexWrapOptions"></select>
+      </label>
+
+      <label>justify-content
+        <select ng-model="containerStyle['justify-content']" ng-options="o for o in justifyContentOptions"></select>
+      </label>
+
+      <label>align-items
+        <select ng-model="containerStyle['align-items']" ng-options="o for o in alignItemsOptions"></select>
+      </label>
+
+      <label>align-content
+        <select ng-model="containerStyle['align-content']" ng-options="o for o in alignItemsOptions"></select>
+      </label>  
+
+      <h3>Child</h3>
+
+      <label>order
+        <input type="number" ng-model="childStyle[selected]['order']">
+      </label>
+
+      <label>flex-grow
+        <input type="number" ng-model="childStyle[selected]['flex-grow']">
+      </label>
+
+      <label>flex-shrink
+        <input type="number" ng-model="childStyle[selected]['flex-shrink']">
+      </label>
+
+      <label>align-self
+        <select ng-model="childStyle[selected]['align-self']" ng-options="o for o in alignItemsOptions"></select>
+      </label>
+    </div>
+  </div>
+  <ul class="flex-container" ng-style="containerStyle">
+    <li ng-repeat="i in items track by $index" ng-style="childStyle[$index]" ng-click="select($index);" ng-class="{active: selected === $index}" ng-if="$index < numChildren">{{ i }}</li> 
+  </ul>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

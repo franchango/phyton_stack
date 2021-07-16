@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>Tienda de frutas del Dojo</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+          <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+              <strong>Tienda de frutas Dojo</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+  
+      <main role="main">
+  
+        <section class="jumbotron text-center">
+          <div class="container">
+            <h1 class="jumbotron-heading">¡Gracias por su orden!</h1>
+            <p class="lead text-muted">Pedimos artículos para usted y cargamos su cuenta de estudiante el 23 de marzo de 2019 a las 5:15:35 p.m.</p>
+          </div>
+        </section>
+  
+        <div class="album py-5 bg-light">
+          <div class="container">
+                <h4 class="mb-3">Su orden es:</h4>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Fruta</th>
+                        <th>Cantidad</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Papaya</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>Mora</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Manzana</td>
+                        <td>2</td>
+                    </tr>
+                    </tbody>
+                </table>
+  
+                <h4 class="mb-3">Su informacion</h4>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        Nombre: 
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        Apellido: 
+                    </div>
+                </div>
+  
+                <div class="mb-3">
+                    Su identificacion: 
+                </div>
+              
+                <hr class="mb-4">
+                <a class="btn btn-primary btn-lg btn-block" href="/">Regresar</a>
+            
+          </div>
+        </div>
+  
+      </main>
+      
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Repetidor de texto</title>
+</head>
+<body>
+    <p>{{my_string}}</p>
+    <p>Numero de veces repetido: {{mylist}}</p>
+    <p>Repetir texto:</p>
+    <ul>
+        {% for i in mylist %}
+        <li>{{my_string}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

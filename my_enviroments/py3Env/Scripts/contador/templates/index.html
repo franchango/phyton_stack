@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contador</title>
+
+</head>
+<body>
+
+    <h1>Contar</h1>
+    <p>Nº de veces visto: {{session['count']}}  </p>
+
+    <form action="/reset" method='post'>
+        <input type="submit" value="resetear">
+    </form>
+
+    <form action="/add_2" method='post'>
+        <input type="submit" value="Adicionar 2">
+    </form>
+    
+    <form action="/destroy" method='post'>
+        <input type="submit" value="destruir">
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Generador de Palabras Aleatorias</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generador de Palabras Aleatorias (Intento #{{request.session.contador}} )</h1>
+
+        <form action="/generate_random" method="post">
+            {% csrf_token %}
+
+            <h2>{{request.session.palabra}}</h2>
+            <input name="two" type="hidden">
+            <button type="submit">Nueva Palabra</button>
+        </form>
+
+        <form action="/reset" method="post">
+            {% csrf_token %}
+
+
+            <input name="one" type="hidden">
+            <button type="submit">Reiniciar</button>
+        </form>
+
+    </div>
+</body>
+
+</html>

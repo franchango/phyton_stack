@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+#wrapper {
+    width: 900px;
+    margin: 100px auto;
+    display: flex;
+    padding: 10px;
+    border: 3px solid rgb(2, 85, 2);
+}
+
+#form {
+    flex: 1;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+#fn_input, #ln_input {
+    margin-left: 10px;
+}
+
+#notes {
+    margin-left: 42px;
+}
+
+button {
+    margin-left: 85px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#table {
+    flex: 1;
+    width: 100%;
+}
+
+table {
+    margin-left: 200px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 2px solid rgb(77, 77, 201)
+}
+
+th, td {
+    padding: 5px;
+}

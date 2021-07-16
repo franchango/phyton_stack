@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+#wrapper {
+    width: 900px;
+    margin: 100px auto;
+    padding: 10px;
+    border: 3px solid rgb(2, 85, 2);
+}
+
+#id {
+    margin: 10px 0px;
+}
+#desc {
+    display: flex;
+}
+
+#book_desc, #author_notes {
+    margin: 0px 0px 10px 20px;
+}
+
+li {
+    margin-left: 20px;
+}
+
+button {
+    padding: 3px;
+    border-radius: 5px;
+}

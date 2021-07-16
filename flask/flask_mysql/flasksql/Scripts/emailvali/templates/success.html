@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Email Validation</title>
+        <link rel='stylesheet' href='{{url_for("static", filename="style.css")}}'>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <h2 class="success">{{messages[0]}}</h2>
+            {% endif %}
+        {% endwith %}
+        <h2>Email Addresses Entered:</h2>
+        <table align=center>
+            <tbody>
+                {% for row in emails %}
+                    <tr>
+                        <td>{{row["email"]}}</td>
+                        <td>{{row["updated_at"]}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

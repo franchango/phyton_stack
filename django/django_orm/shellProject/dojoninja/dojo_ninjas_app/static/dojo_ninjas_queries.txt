@@ -1,0 +1,142 @@
+Microsoft Windows [Version 10.0.18363.900]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\shari>cd "OneDrive/Documents/Coding Dojo/python_stack/my_environments
+
+C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\my_environments>call djangoPy3Env/Scripts/activate
+
+(djangoPy3Env) C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\my_environments>cd../django/django_orm
+
+(djangoPy3Env) C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\django\django_orm>django-admin startproject dojo_ninjas_proj
+
+(djangoPy3Env) C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\django\django_orm>cd dojo_ninjas_proj
+
+(djangoPy3Env) C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\django\django_orm\dojo_ninjas_proj>code .
+
+(djangoPy3Env) C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py startapp dojo_ninjas_app
+
+(djangoPy3Env) C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py makemigrations
+Migrations for 'dojo_ninjas_app':
+  dojo_ninjas_app\migrations\0001_initial.py
+    - Create model Dojo
+    - Create model Ninja
+
+(djangoPy3Env) C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying dojo_ninjas_app.0001_initial... OK
+  Applying sessions.0001_initial... OK
+
+(djangoPy3Env) C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py shell
+Python 3.8.3 (tags/v3.8.3:6f8c832, May 13 2020, 22:20:19) [MSC v.1925 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from dojo_ninjas_app.models import *
+>>> Dojo.objects.create(name='Kitty\'s Dojo',city='Langbourne', state='MD')
+<Dojo object: Kitty's Dojo (Langbourne, MD) [1]>
+>>> Dojo.objects.create(name='Rosings Dojo',city='Hunsford', state='VA')
+<Dojo object: Rosings Dojo (Hunsford, VA) [2]>
+>>> Dojo.objects.create(name='Pemberley',city='Derbyshire', state='MD')
+<Dojo object: Pemberley (Derbyshire, MD) [3]>
+>>> Dojo.objects.all().delete()
+(3, {'dojo_ninjas_app.Ninja': 0, 'dojo_ninjas_app.Dojo': 3})
+>>> Dojo.objects.create(name='Netherfield',city='Longbourne', state='MD')
+<Dojo object: Netherfield (Longbourne, MD) [4]>
+>>> Dojo.objects.create(name='City Dojo',city='Meryton', state='MD')
+<Dojo object: City Dojo (Meryton, MD) [5]>
+>>> Dojo.objects.create(name='Pemberley Dojo',city='Debryshire', state='MD')
+<Dojo object: Pemberley Dojo (Debryshire, MD) [6]>
+>>> for dojo in Dojo.objects.all()
+  File "<console>", line 1
+    for dojo in Dojo.objects.all()
+                                 ^
+SyntaxError: invalid syntax
+>>> for dojo in Dojo.objects.all():
+...     print(dojo)
+...
+Dojo object (4)
+Dojo object (5)
+Dojo object (6)
+>>> for dojo in Dojo.objects.all():
+...     print(dojo.name)
+...
+Netherfield
+City Dojo
+Pemberley Dojo
+>>> Ninja.objects.create(first_name='Charles', last_name='Bingley',dojo=Dojo.objects.get(id=4))
+<Ninja object: Charles Bingley (1)>
+>>> Ninja.objects.create(first_name='Caroline', last_name='Bingley',dojo=Dojo.objects.get(id=4))
+<Ninja object: Caroline Bingley (2)>
+>>> Ninja.objects.create(first_name='Jane', last_name='Bennett',dojo=Dojo.objects.get(id=4))
+<Ninja object: Jane Bennett (3)>
+>>> city_dojo = Dojo.objects.get(id=5)
+>>> city_dojo.name
+'City Dojo'
+>>> Ninja.objects.create(first_name='George', last_name='Wickham',dojo=city_dojo)
+<Ninja object: George Wickham (4)>
+>>> Ninja.objects.create(first_name='Lydia', last_name='Bennett',dojo=city_dojo)
+<Ninja object: Lydia Bennett (5)>
+>>> Ninja.objects.create(first_name='Charlotte', last_name='Lucas',dojo=city_dojo)
+<Ninja object: Charlotte Lucas (6)>
+>>> pemberley_dojo = Dojo.objects.get(id=6)
+>>> Ninja.objects.create(first_name='Fitzwilliam', last_name='Darcy',dojo=pemberley_dojo)
+<Ninja object: Fitzwilliam Darcy (7)>
+>>> Ninja.objects.create(first_name='Colonel', last_name='Fitzwilliam',dojo=pemberley_dojo)
+<Ninja object: Colonel Fitzwilliam (8)>
+>>> Ninja.objects.create(first_name='Elizabeth', last_name='Bennett',dojo=pemberley_dojo)
+<Ninja object: Elizabeth Bennett (9)>
+>>> Dojo.objects.get(id=4).ninjas.all()
+<QuerySet [<Ninja object: Charles Bingley (1)>, <Ninja object: Caroline Bingley (2)>, <Ninja object: Jane Bennett (3)>]>
+>>> Dojo.objects.last().ninjas.all()
+<QuerySet [<Ninja object: Fitzwilliam Darcy (7)>, <Ninja object: Colonel Fitzwilliam (8)>, <Ninja object: Elizabeth Bennett (9)>]>
+>>> Ninja.objects.last().dojo
+<Dojo object: Pemberley Dojo (Debryshire, MD) [6]>
+>>> ^Z
+
+now exiting InteractiveConsole...
+
+(djangoPy3Env) C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py makemigrations
+You are trying to add a non-nullable field 'desc' to dojo without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> 'Not provided'
+Migrations for 'dojo_ninjas_app':
+  dojo_ninjas_app\migrations\0002_dojo_desc.py
+    - Add field desc to dojo
+
+(djangoPy3Env) C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying dojo_ninjas_app.0002_dojo_desc... OK
+
+(djangoPy3Env) C:\Users\shari\OneDrive\Documents\Coding Dojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py shell
+Python 3.8.3 (tags/v3.8.3:6f8c832, May 13 2020, 22:20:19) [MSC v.1925 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from dojo_ninjas_app.models import *
+>>> Dojo.objects.create(name='Rosings Park',city='Hunsford',state='VA',desc='On the estate of Lady Catherine De Bourgh.')
+<Dojo object: Rosings Park (Hunsford, VA) [7]>
+>>>

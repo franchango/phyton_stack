@@ -1,0 +1,10 @@
+User.objects.all()
+User.objects.last()
+User.objects.first()
+user_three = User.objects.get(id=3)
+user_three.last_name = "Pancakes"
+user_three.save()
+user_two = User.objects.get(id=2)
+user_two.delete()
+User.objects.order_by('first_name')
+User.objects.order_by('-first_name')

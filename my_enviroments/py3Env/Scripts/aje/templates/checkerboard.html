@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tablero Ajedrez</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/cssCheckerboard.css')}}">
+</head>
+<body>
+
+    {% if y or x: %}
+        <table>
+        {% for i in range(y): %}
+            <tr>
+                {% for j in range(x): %}
+                <td class="color{{ (i + j)% 2 }}"></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+
+    
+
+    {% else: %}
+        <table>
+        {% for i in range(8): %}
+            <tr>
+                {% for j in range(8): %}
+                <td class="color{{ (i + j)% 2 }}"></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+
+</body>
+</html>

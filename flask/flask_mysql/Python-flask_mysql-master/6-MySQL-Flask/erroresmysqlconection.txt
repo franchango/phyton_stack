@@ -1,0 +1,13 @@
+Se verifica el cambió el usuario de 'root' 
+por seguridad
+      sqlalchemy.exc.OperationalError
+      OperationalError: (_mysql_exceptions.OperationalError) (1045, "Acceso denegado para el usuario 'root' @ 'localhost' (usando contraseña: YES)")
+El puerto de conexion debe verificarse muchas veces existe cambios
+Puerto cambiado a 3305
+
+      sqlalchemy.exc.OperationalError
+      OperationalError: (_mysql_exceptions.OperationalError) (2003, "No se puede conectar al servidor MySQL en '127.0.0.1' (61)")
+Contraseña cambiada
+
+      sqlalchemy.exc.OperationalError
+      OperationalError: (_mysql_exceptions.OperationalError) (1045, "Acceso denegado para el usuario 'root' @ 'localhost' (usando contraseña: YES)")

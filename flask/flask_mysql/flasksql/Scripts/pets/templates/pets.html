@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='pets.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>C+R Pets</title>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-8 offset md-5" style="text-align:center;">
+            <h1>Todos los animales</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th> Nombre: </th>
+                        <th> Tipo: </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for one_pet in all_pets %}
+                    <tr>
+                        <td> {{one_pet["name"]}}</td>
+                        <td> {{one_pet["type"]}}</td>
+                    <tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8 offset md-5" style="text-align:center;">
+            <h1>Añadir animales</h1>
+            <form action="/add_pet" method="POST">
+                <div class="form-group">
+                    <p>Nombre: <input type="text" name="name"></p>
+                </div>
+                <div class="form-group">
+                    <p>tipo: <input type="text" name="type"></p>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Añadir">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

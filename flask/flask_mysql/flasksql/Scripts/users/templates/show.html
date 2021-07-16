@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Usuario: {{user["id"]}}</h1>
+    <h5>Nombre: {{user["fname"]}} {{user["lname"]}}</h5>
+    <h5>Correo: {{user["email"]}} </h5>
+    <h5>Creado el: {{user["created_at"]}} </h5>
+    <h5>Actualizaciòn ultima: {{user["updated_at"]}} </h5>
+
+    <a href="/users/{{user['id']}}/edit" class="badge badge-primary">Editar</a>||
+    <a href="/users/{{user['id']}}/destroy" class="badge badge-primary">Borrar</a>
+</body>
+</html>

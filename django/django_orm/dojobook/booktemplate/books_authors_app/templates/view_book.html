@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/view_book.css' %}">
+        <!-- <link rel="stylesheet" href="../static/css/style.css" -->
+    </head>
+    <body>
+        <div id="wrapper">
+            <h2>{{this_book.title}}</h2>
+            <p id="id">ID: {{this_book.id}}</p>
+            <div id="desc">
+                <p>Description:</p>
+                <p id="book_desc">{{this_book.desc}}</p>
+            </div>  <!--end desc-->
+            <p>Authors</p>
+            <ul>
+                {% for author in this_book.authors.all %}
+                <li>{{author.first_name}} {{author.last_name}}</li>
+                {% endfor %}
+            </ul>
+            <form action="/add_author" method="POST">
+            {% csrf_token %}
+                <select name="author_id">
+                    <option value = "">-select an author-</option>
+                    {% for author in all_the_authors %}
+                        <option value="{{author.id}}">{{author.first_name}} {{author.last_name}}</option>
+                    {% endfor %}
+                </select>
+                <input type="hidden" name = "book_id" value="{{this_book.id}}">
+                <button type="submit">Add</button>
+            </form>
+
+
+        </div>  <!--end wrappper-->
+    </body>
+</html>

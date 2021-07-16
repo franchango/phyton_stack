@@ -1,0 +1,12 @@
+.container{
+    width:900px;
+    height:900px;
+    border: 1px solid black;
+    background: radial-gradient(circle, #cce0ff,#99c2ff,#4d94ff);
+}
+
+.col-md-8.offset.md-5{
+    margin-left:160px;
+    margin-top:50px;
+}
+

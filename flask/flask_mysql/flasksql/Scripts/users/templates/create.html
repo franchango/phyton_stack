@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class='form container-fluid'>
+        <form action="/users/create" method="POST">
+            <div class="form-group">
+                <label for="ffname">Nombre</label>
+                <input type="text" id="ffname" name="fname" class="form-control" placeholder="Ingrese el Nombre">
+            </div>
+            <div class="form-group">
+                <label for="llname">Apellido</label>
+                <input type="text" id="llname" name="lname" class="form-control" placeholder="Ingrese el apellido">
+            </div>
+            <div class="form-group">
+                    <label for="eemail">Correo</label>
+                    <input type="text" id="eemail" name="email" class="form-control" placeholder="Ingrese el correo">
+                </div>
+            <button type="submit" class="btn btn-primary">Crear</button>
+        </form>
+    </div>
+</body>
+</html>

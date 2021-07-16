@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Juego de Numeros</title>
+        <meta description='Asignación de juego de gran número de Dojo de codificación'>
+        <meta charset='utf-8'/>
+    </head>
+    <style>
+        *{
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Open Sans', sans-serif;
+        }
+        #wrapper {
+            height: 800px;
+            width: 800px;
+            padding: 50px;
+            z-index: -1
+            background-image: linear-gradient(300deg, grey, white);
+        }
+        #start {
+            height: 200px;
+            width: 300px;
+            text-align: center;
+            padding-top: 50px;            
+            display: {{startdisplay}};
+        }
+        #error {
+            height: 200px;
+            width: 300px;
+            text-align: center;
+            padding-top: 50px;   
+            background-color: yellow;         
+            display: {{errordisplay}};
+        }
+        #win {
+            height: 200px;
+            width: 300px;
+            text-align: center;
+            padding-top: 50px;            
+            background-color: green;            
+            display: {{windisplay}};
+        }
+        #high {
+            height: 200px;
+            width: 300px;
+            background-color: red;
+            text-align: center;
+            padding-top: 50px;            
+            display: {{highdisplay}};
+        }
+        #low {
+            height: 200px;
+            width: 300px;
+            background-color: red;
+            text-align: center;
+            padding-top: 50px;            
+            display: {{lowdisplay}};
+        }
+        footer {
+            margin-top: 100px;
+            text-align: center;
+            font-size: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <body>
+        <div id=wrapper>        
+            <h1>El Gran Juego de Numeros</h1>
+            <h3>Estoy pensando en un número entre 1 y 100</h3>
+            <h3>¡Adivina!</h3>
+            <br>
+            <div id="start">
+                <form id="guess" action="/checknumbers" method='post'>
+                    <input type=text name="guess">
+                    <input type=submit value="Guess">
+                </form>
+            </div>    
+            <div id="error">
+                <h3>Oh !! Creo que ingresaste un número que no es válido, vuelve a intentarlo ...</h3>
+                <form id='reset' action='/checknumbers' method='post'>
+                    <input type=text name="guess">
+                    <input type=submit value="Guess">
+                </form>
+            </div>
+            <div id="win">
+                <h3>¡Tú ganas!</h3>
+                <h4>Estaba pensando en {{ currandom }}.</h4>
+                <form id='reset' action='/reset' method='post'>
+                    <input type=submit value="Play Again">
+                </form>
+            </div>
+            <div id="high">
+                <h3>El numero es demasiado alto ahora.</h3>            
+                <form id="guess" action="/checknumbers" method='post'>
+                    <input type=text name="guess">
+                    <input type=submit value="Guess">
+                </form>
+            </div>
+            <div id="low">
+                <h3>El valor no es lo suficientemente alto.</h3>
+                <form id="guess" action="/checknumbers" method='post'>
+                    <input type=text name="guess">
+                    <input type=submit value="Guess">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

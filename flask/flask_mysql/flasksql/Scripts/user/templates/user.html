@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script defer type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <title>User</title>
+</head>
+<body>
+    <a href="/users">Home</a>
+    <h1>User Info</h1>
+    {% for user in user %}
+        <p>ID: {{user["id"]}}</p>
+        <p>First Name: {{user["first_name"]}}</p>
+        <p>Last Name: {{user["last_name"]}}</p>
+        <p>Email: {{user["email"]}}</p>
+        <hr>
+        <a href="/users/{{user['id']}}/edit">Edit</a>
+    <a href="/users/{{user['id']}}/destroy">Delete</a>
+    {% endfor %}
+    
+</body>
+</html>
