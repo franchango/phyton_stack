@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %} 
+<div class="row">
+    <div class="col-6 p-3">
+        <form action="{% url 'add_user' %}" method="POST">
+            {% csrf_token %}
+            <h1 class="mx-auto">Add New User</h1><br>
+            {% if messages %}
+            {% for message in messages %}
+            <ul>
+                <li style="color: brown;">{{message}}</li>
+            </ul>
+            {% endfor %}
+            {% endif %}
+            <label for="fname">First Name:</label><br>
+            <input type="text" name="fname" id="fname"><br>
+            <label for="lname">Last Name:</label><br>
+            <input type="text" name="lname" id="lname"><br>
+            <label for="email">E-mail:</label><br>
+            <input type="email" name="email" id="email"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" name="password" id="password"><br>
+            <label for="confirm_password">Confirmar Password:</label><br>
+            <input type="password" name="confirm_password" id="confirm_password"><br><br>
+            <button type="submit" class="btn btn-primary mx-auto">Create</button>
+        </form>
+        <br>
+    </div>
+    <div class="col-6">
+        <div class="col-6 d-flex justify-content-end">
+            <div><a href="{% url 'dashboard' %}"><input type="button" value="Return to Dashboard" class="btn btn-secondary mx-auto"></a></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

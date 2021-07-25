@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title> TV Shows</title>
+    <!-- {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+</head>
+
+<body>
+    <h1>Todos los TV Shows</h1>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Canal</th>
+                <th>Fecha Subida</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for show in shows %}
+            <tr>
+                <td>{{ show.id }}</td>
+                <td>{{ show.title }}</td>
+                <td>{{ show.network }}</td>
+                <td>{{ show.release_date|date:"SHORT_DATE_FORMAT" }}</td>
+                <td><a href="/shows/{{ show.id }}">Mirar</a> | <a href="/shows/{{ show.id }}/edit">Editar</a> | <a href="/shows/{{ show.id }}/delete">Eliminar</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <a href="/shows/new">Añadir Show!</a>
+        
+    </table>
+</body>
+
+</html>

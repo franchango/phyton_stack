@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %} 
+<div class="row">
+    <div class="col-6">
+        <h5>Manage Users</h5>
+    </div>
+    {% if logged_user_level == 9 %}
+    <div class="col-6 d-flex justify-content-end">
+        <div><a href="{% url 'add_user' %}"><input type="button" value="Add New" class="btn btn-secondary mx-auto"></a></div>
+    </div>
+    {% endif %}
+</div>
+<br><br>
+<div class="row">
+    <div class="col">
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>E-mail</th>
+                <th>Created At</th>
+                <th>User Level</th>
+                {% if logged_user_level == 9 %}
+                <th>Actions</th>
+                {% endif %}
+                
+            </tr>
+            {% for user in all_users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td><a href="#">{{ user.fname }}  {{ user.lname }}</a></td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.created_at }}</td>
+                    {% if user.user_level == 1 %}
+                    <td>Normal</td>
+                    {% else %}
+                    <td>Admin</td>
+                    {% endif %}
+                    {% if logged_user_level == 9 %}
+                    <td><a href="{% url 'edit_user' user.id %}"> Edit </a> | <a href="{% url 'del_user' user.id %}">Delete</a></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

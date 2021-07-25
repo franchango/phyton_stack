@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %} 
+<div class="row">
+    <div class="col p-3">
+        <form action="/register/" method="POST">
+            {% csrf_token %}
+            <h1 class="mx-auto">Registration</h1><br>
+            {% if messages %}
+            {% for message in messages %}
+            <ul>
+                <li style="color: brown;">{{message}}</li>
+            </ul>
+            {% endfor %}
+            {% endif %}
+            <label for="fname">First Name:</label><br>
+            <input type="text" name="fname" id="fname"><br>
+            <label for="lname">Last Name:</label><br>
+            <input type="text" name="lname" id="lname"><br>
+            <label for="email">E-mail:</label><br>
+            <input type="email" name="email" id="email"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" name="password" id="password"><br>
+            <label for="confirm_password">Confirmar Password:</label><br>
+            <input type="password" name="confirm_password" id="confirm_password"><br><br>
+            <button type="submit" class="btn btn-primary mx-auto">Registrar</button>
+        </form>
+        <br>
+        <a href="{% url 'signin' %}">Already have an account? Login</a>
+    </div>
+
+{% endblock %}

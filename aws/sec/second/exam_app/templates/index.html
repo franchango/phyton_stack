@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="index_nav">
+    <h1>Hello, {{user.first_name}}!</h1>
+
+    <div id="index_nav_right">
+        
+        <form action="logout" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="LOGOUT" class="button" id="logout">
+        </form>
+    </div>
+</div>
+
+<div id="index_main">
+<!-- USER TRIPS -->
+    <h2>Aquí están los grupos que sigues o creados por ti:</h2>
+    <table>
+        <thead>
+            <th class="destination">Grupo</th>
+            <th class="plan">Descripción</th>
+            <th class="number">Miembros</th>
+            <th class="action">Accion</th>
+        </thead>
+
+        <tbody>
+            {%for trip in user_trips %}
+            <tr>
+                <td class="destination"><a href="{{trip.id}}">{{trip.destination}}</a></td>
+                <td class="plan">{{trip.plan}}</td>
+                <td class="number">{{joined_user.first_name}}</td>
+                <td class="action"><a href="{{trip.id}}/remove">Remove</a> | <a href="{{trip.id}}/edit">Edit</a></td>
+            </tr>
+            {% endfor %}
+
+            <!-- Todas la organizaciones que sigue -->
+            {% for trip in joined_trips %}
+            <tr>
+                <td class="destination"><a href="{{trip.id}}">{{trip.destination}}</a></td>
+                <td class="plan">{{trip.plan}}</td>
+                <td class="action">
+                    <form action="{{trip.id}}/cancel" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" value="Leave Group" class="cancel">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Todas los grupos existentes -->
+    <h2>Grupos de otras Personas</h2>
+
+    <table>
+        <thead>
+            <th class="destination">Grupo</th>
+            <th>Creado por</th>
+         
+            <th class="plan">Descripción</th>
+            <th class="number">Miembros</th>
+            <th class="join">Seguir</th>
+        </thead>
+
+        <tbody>
+            {%for trip in other_trips %}
+                {% if trip not in joined_trips %}
+                <tr>
+                    <td class="destination"><a href="{{trip.id}}">{{trip.destination}}</a></td>
+                    <td>{{trip.created_by.first_name}} {{trip.created_by.last_name}}</td>
+                    
+                    <td class="plan">{{trip.plan}}</td>
+                    <td class="number">{{trip.joinded_by}}</td>
+                    <td class="join"><form action="{{trip.id}}/join" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" value="Join Group" class="cancel">
+                    </form></td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <div id="create_nav">
+        <h1> Create un Nuevo Grupo</h1>
+    
+        
+    </div>
+    
+    <div id="create_main">
+    
+        {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+        {% endif %}
+    
+        <form action="create" method="POST">
+            {% csrf_token %}
+            <h2>NEW Group</h2>
+    
+            <div class="form_field">
+                <label for="destination">Nombre</label>
+                <input type="text" name="destination" id="destination">
+            </div>
+    
+            
+    
+            <div class="form_field">
+                <label for="plan">Descripción</label>
+                <textarea name="plan" id="plan" cols="15" rows="5"></textarea>
+            </div>
+    
+            <div id="buttons">
+                
+                <input type="submit" value="Create" id="create_update">
+            </div>
+    
+    
+        </form>
+    </div>
+</div>
+{% endblock %}

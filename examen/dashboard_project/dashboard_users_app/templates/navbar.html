@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="p-2">
+        <span class="navbar-brand mb-0 h1">Test App</span>
+    </div>
+    <div>
+        <a class="navbar-brand" href="/">Home</a>
+    </div>
+    {% if request.session.logged_user %}
+    <div>
+        <a class="navbar-brand" href="/dashboard/">Dashboard</a>
+    </div>
+    <div>
+        <a class="navbar-brand" href="{% url 'edit_profile' request.session.logged_user %}">Profile</a>
+    </div>
+    {% endif %}
+    <div class="container-fluid justify-content-end">
+        {% if request.session.logged_user %}
+        <a class="navbar-brand" href="{% url 'logout' %}">Sign-off</a>
+        {% endif %}
+        {% if not request.session.logged_user %}
+        <a class="navbar-brand" href="{% url 'signin' %}">Sign-in</a>
+        {% endif %}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %} 
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron bg-light bg-gradient">
+                <h1 class="display-4">Welcome to the Test</h1>
+                <p class="lead">We are going to build a cool application using an MVC framework! This application was built with the Village88 folks!</p>
+                <hr class="my-4">
+                <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{% url 'signin' %}" role="button">Start</a>
+                </p>
+            </div>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Manage Users</h5>
+                <p class="card-text">Using this application, you'll learn how to add, remove and edit users for the application.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Leave Messages</h5>
+                <p class="card-text">Users will be able to leave a message to another user using this application.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Edit User Information</h5>
+                <p class="card-text">Admins will be able to edit another user's information (email address, first name, last name, etc).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
